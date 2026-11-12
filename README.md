@@ -1,28 +1,10 @@
-# T10-Google-MB-Business-v2
+# Pizza-Em-Casa-MB
 
-Site estático (HTML, CSS e JavaScript puros) de **postdiarios.com.br**. Não precisa de build nem de instalação: basta publicar os arquivos como estão.
+Página de VSL do **Pizza em Casa** (HTML estático, sem build).
 
-## Estrutura
-
-| Endereço | Pasta | O que é |
-|---|---|---|
-| `/` | `index.html` | Página principal = página de vendas com VSL (preço e botões liberados no pitch). É uma cópia de `front/` |
-| `/front/` | `front/` | Mesma página de vendas, mantida no endereço antigo |
-| `/297/` | `297/` | Upsell Pacote Completo (VSL + widget Hotmart no pitch) |
-| `/197/` | `197/` | Oferta 197 (se recusar a 297) |
-| `/97/` | `97/` | Oferta 97 (se recusar a 197) |
-| `/obrigado/` | `obrigado/` | Página de obrigado (grupo de WhatsApp) |
-| `/termos/` | `termos/` | Termos de uso |
-| `/privacidade/` | `privacidade/` | Política de privacidade |
-| — | `img/`, `video/` | Imagens e vídeo usados nas páginas (caminhos a partir da raiz, ex.: `/img/logo.webp`) |
-
-## Rastreamento
-- Pixel da Meta (ID 207279252446547)
-- Utmify (UTMs) e pixel do Google da Utmify (ID da versão 2, otimizado para Google Ads)
-
-## Publicação
-Cada pasta tem um `index.html`, então o site precisa ser servido a partir da **raiz do repositório** (sem pasta por fora).
-- **Cloudflare Pages / Netlify / Vercel:** conecte o repositório, deixe o comando de build vazio e o diretório de saída como `/` (raiz).
-- **AWS (S3 + CloudFront):** envie o conteúdo para a raiz do bucket e, para as subpastas abrirem, associe uma CloudFront Function que complete endereços terminados em `/` com `index.html`.
-
-Observação: as páginas apontam para as imagens a partir da raiz do domínio, então o site deve ficar na raiz (ex.: `https://postdiarios.com.br/`), não numa subpasta.
+- Domínio: `postdiario.com.br`, o site precisa ficar na **raiz** do domínio.
+- `/` é a página da VSL (Vturb), `/termos` e `/privacidade` são as páginas legais.
+- Empresa: MB Business LTDA — CNPJ 49.203.753/0001-93.
+- E-mail de contato usado nas páginas: `contato@postdiario.com.br` (troque se for outro; está em `index.html`, `termos/` e `privacidade/`).
+- Rastreamento mantido em todas as páginas: Meta Pixel, Utmify e Utmify Google Ads.
+- Hospedagem em S3 + CloudFront: se `/termos` e `/privacidade` derem erro, aplique a CloudFront Function que acrescenta `index.html` em URLs de pasta.
